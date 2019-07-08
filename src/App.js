@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import './App.css';
+import classes from './App.css';
 
 import Person from './Person/Person';
 
@@ -70,16 +70,16 @@ render() {
     style.backgroundColor = "red";
   }
 
-  const classes = [];
+  const assignedClasses = [];
   if(this.state.persons.length <= 2) {
-    classes.push('red');
+    assignedClasses.push(classes.red);
   } if (this.state.persons.length <= 1) {
-    classes.push('bold');
+    assignedClasses.push(classes.bold);
   }
   return (
-    <div className="App">
+    <div className={classes.App}>
       <h1>Test Header</h1>
-      <p className={classes.join(' ')}>This is a test paragraph</p>
+      <p className={assignedClasses.join(' ')}>This is a test paragraph</p>
       <button 
         style={style}
         onClick={this.togglePersonsHandler}>Toggle Persons</button>
