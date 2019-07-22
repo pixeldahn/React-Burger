@@ -1,7 +1,7 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import classes from './App.css';
 
-import Person from './Person/Person';
+import Person from '../components/Persons/Person/Person';
 
 class App extends Component{
 state = {
@@ -40,17 +40,9 @@ togglePersonsHandler = () => {
   })
 }
 render() {
-  const style = {
-    backgroundColor: 'cadetblue',
-    // border: '1px solid cadetblue',
-    font: 'inherit',
-    padding: '8px',
-    cursor: 'pointer',
-    color: '#ffffff',
-    borderRadius: '4px',
-  }
 
   let persons = null;
+  let btnClass = '';
 
   if(this.state.showPersons) {
     persons = (
@@ -67,7 +59,7 @@ render() {
         </div>
     );
 
-    style.backgroundColor = "red";
+    btnClass = classes.Red;
   }
 
   const assignedClasses = [];
@@ -81,7 +73,7 @@ render() {
       <h1>Test Header</h1>
       <p className={assignedClasses.join(' ')}>This is a test paragraph</p>
       <button 
-        style={style}
+      className={btnClass}
         onClick={this.togglePersonsHandler}>Toggle Persons</button>
         {persons}
       </div>
